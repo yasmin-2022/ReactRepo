@@ -39,3 +39,6 @@ font-size: 24px;
   justify-content:space-around;
   flex-wrap: wrap;
 }
+.filter-btn{
+  padding: 10px;
+}
