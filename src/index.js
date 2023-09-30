@@ -4,14 +4,9 @@ import Header from './components/Header';
 import Body from './components/Body';
 import About from './components/About';
 import Create from './components/Create';
+import RestaurentCard from './components/RestaurentCard';
+
 import { createBrowserRouter,RouterProvider,Outlet } from 'react-router-dom';
-
-
-
-
-
-
-
 
 const AppLayout = () => {
   return (
@@ -36,7 +31,11 @@ const appRouter = createBrowserRouter([{
   {
       path: "/create",
       element:<Create />
-    }
+    },
+    {
+      path: "/Restaurent/:resId",
+      element:<RestaurentCard/>
+  },
   ]
 },
 ]
