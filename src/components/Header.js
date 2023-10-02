@@ -30,6 +30,11 @@ const Header = () => {
             Create
             </Link>
           </li>
+           <li>
+            <Link to="/grocery">
+            Grocery
+            </Link>
+          </li>
           <li>Cart</li>
           <button className="loginBtn" onClick={() => {
             loginBtn==='Login'?setloginBtn("Logout"):setloginBtn("Login")
