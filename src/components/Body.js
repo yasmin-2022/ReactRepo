@@ -2,6 +2,8 @@ import Meal from '../utils/mokeDetails'
 import RestaurentCard from './Restaurent'
 import { useState, useEffect } from 'react'
 import Shimmer from'./Shimmer'
+import { Link } from 'react-router-dom'
+import useOnlineStatus from '../utils/useOnlineStatus'
 
 
 const Body = () => {
@@ -19,6 +21,12 @@ const Body = () => {
     setList(Meal)
     setFilterRes(Meal)
   }
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) {
+    return <div>
+      <p>Look like some thing went wrong !!</p>
+    <h1>Check Your Internet Connection</h1>
+  </div> }
   return List.length === 0 ?<Shimmer /> :(
     <div className='body'>
       <div className='filter'>
@@ -42,7 +50,11 @@ const Body = () => {
         }}>TopRestaurant</button>
       </div>
       <div className='res-container'>
-        {FilterRes.map((res) => <RestaurentCard key={res.idCategory} resData={ res} />)}
+          {FilterRes.map((res) =>
+        <Link to={"/about"} key={res.idCategory}  >
+              <RestaurentCard  resData={res} />
+        </Link>
+            )}
       </div>
     </div>
   )
