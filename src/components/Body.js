@@ -29,10 +29,10 @@ const Body = () => {
   </div> }
   return List.length === 0 ?<Shimmer /> :(
     <div className='body'>
-      <div className='filter'>
-        <div className='search'>
-          <input className='search-food' value={searchText} onChange={(e)=>setSearchText(e.target.value)}/>
-          <button className='searchBtn' onClick={() =>{
+      <div className='filter flex mt-4'>
+        <div className='search '>
+          <input className='mx-4  border border-solid border-black' value={searchText} onChange={(e)=>setSearchText(e.target.value)}/>
+          <button className='searchBtn mr-4 bg-gray-200 px-4' onClick={() =>{
 
             console.log(searchText);
             const searchFiltered = List.filter((ele) => ele.strCategory.toLowerCase().includes(searchText.toLowerCase()));
@@ -42,17 +42,17 @@ const Body = () => {
           
           }>Search</button>
        </div>
-        <button className='filter-btn ' onClick={() => {
+        <button className='filter-btn  mr-4 bg-gray-200 px-5 ' onClick={() => {
           let filtered = List.filter((res) => res.strCategoryRating > 4);
           console.log(filtered)
           setList(filtered)
 
         }}>TopRestaurant</button>
       </div>
-      <div className='res-container'>
+      <div className='res-container flex flex-wrap text-center'>
           {FilterRes.map((res) =>
-        <Link to={"/about"} key={res.idCategory}  >
-              <RestaurentCard  resData={res} />
+            <Link to={"/about"} key={res.idCategory}  >
+            <RestaurentCard  resData={res} />
         </Link>
             )}
       </div>
